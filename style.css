@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400|Poppins:300,400,800&display=swap');
+:root {
+    --c1: #D4F4EA;
+    --c2: #2fc4b2;
+    --c3: #8defdb;
+    --c4: #b2f0e8;
+    --c5: #117c6f;
+    --c6: #289c8e;
+    --c7: hsla(222, 47%, 11%, 1);
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Poppins';
+    background: var(--c7);
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.box{
+    width: 0%;
+    height: 620px;
+    background: var(--c2);
+    position: absolute;
+    animation: openBox 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    -webkit-animation: openBox 1s cubic-bezier(.74, .06, .4, .92) forwards;
+}
+.product_img{
+    width: 600px;
+    position: absolute;
+    left: -150px;
+    top: 50px;
+    opacity: 0;
+    animation: fadeImg 1s ease-in-out forwards, jump 4s ease infinite;
+    animation-delay: 1s, 2s;
+}
+.product_video{
+    width: 320px;
+    height: 100px;
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+}
+.video{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    opacity: 0;
+    animation: upVideo 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    -webkit-animation: upVideo 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    animation-delay: 1.2s;
+}
+.video i{
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: var(--c7);
+    border: 2px solid var(--c7);
+    border-radius: 50%;
+    transition: ease-in-out 220ms;
+    cursor: pointer;
+}
+.video i:hover{
+    background: var(--c7);
+    color: var(--c1);
+    box-shadow: 0 0 26px var(--c7);
+}
+.video p{
+    margin-left: 25px;
+}
+.product_disc{
+    width: 0px;
+    height: 430px;
+    background: linear-gradient(to right, var(--c1), var(--c2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    animation: showDisc 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    -webkit-animation: showDisc 1s cubic-bezier(.74, .06, .4, .92) forwards;
+}
+.product_disc .pd_content{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    animation: fadeContent 1s ease-in-out forwards;
+    -webkit-animation: fadeContent 1s ease-in-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+.pd_content_abt{
+    width: 100%;
+}
+.pd_content_abt h1{
+    font-size: 32px;
+}
+.pd_content_abt span{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    opacity: .5;
+}
+.pd_content_abt p{
+    margin-top: 35px;
+    font-size: 14px;
+}
+.product_viewmore{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+.product_viewmore:hover .view_more_block{
+    width: 220px;
+    height: 35px;
+}
+.product_viewmore .view_more_block{
+    width: 10px;
+    height: 15px;
+    position: absolute;
+    background: var(--c6);
+    z-index: 1;
+    transition: cubic-bezier(.68, -.55, .27, 1.55) 320ms;
+}
+.product_viewmore p{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    z-index: 2;
+    margin-left: 15px;
+}
+.product_buttons{
+    width: 500px;
+    height: 100px;
+    bottom: 50px;
+    right: -50px;
+    position: absolute;
+}
+.product_buttons .btn{
+    width: 220px;
+    height: 70%;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 320ms ease;
+    cursor: pointer;
+    border-radius: 12px;
+}
+.product_buttons .wishlist{
+    border: 2px solid var(--c4);
+    background: transparent;
+    color: var(--c4);
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    opacity: 0;
+    animation: fadeWish 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    -webkit-animation: fadeWish 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    animation-delay: 1s;
+}
+.product_buttons .wishlist:hover{
+    background: var(--c4);
+    color: var(--c2);
+    box-shadow: 0 0 16px var(--c5);
+}
+.product_buttons .buy{
+    border: none;
+    background: linear-gradient(to right, var(--c5), var(--c3));
+    color: var(--c3);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    animation: fadeBuy 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    -webkit-animation: fadeBuy 1s cubic-bezier(.74, .06, .4, .92) forwards;
+    animation-delay: 1s;
+}
+.product_buttons .buy:hover{
+    box-shadow: 0 0 16px var(--c7);
+    transform: scale(1.03);
+}
+@keyframes openBox{
+    0%{
+        width: 0px;
+        left: 15%;
+    }
+    100%{
+        width: 900px;
+        left: 15%;
+    }
+}
+@keyframes fadeImg{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes upVideo{
+    0%{
+        opacity: 0;
+        bottom: -20px;
+    }
+    100%{
+        opacity: 1;
+        bottom: 0px;
+    }
+}
+@keyframes showDisc{
+    0%{
+        width: 0px;
+        left: 450px;
+    }
+    100%{
+        width: 500px;
+        left: 450px;
+    }
+}
+@keyframes fadeContent{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes fadeWish{
+    0%{
+        opacity: 0;
+        bottom: -25px;
+    }
+    100%{
+        opacity: 1;
+        bottom: 0;
+    }
+}
+@keyframes fadeBuy{
+    0%{
+        opacity: 0;
+        bottom: -25px;
+    }
+    100%{
+        opacity: 1;
+        bottom: 0;
+    }
+}
+@keyframes jump{
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(25px);
+    }
+}
